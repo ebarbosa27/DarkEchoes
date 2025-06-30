@@ -1,5 +1,8 @@
+import { useState } from "react";
+
 export default function App() {
-  // TODO
+  const { selectedEpisode, setSelectedEpisode } = useState(null);
+
   return (
     <>
       <h1>Dark Echoes</h1>
@@ -8,10 +11,14 @@ export default function App() {
           <h2>Episodes</h2>
           {/* List items here */}
         </div>
-        <div>
-          <h2>{/* Selected Episode */}</h2>
-          {/* selected episode data */}
-        </div>
+        {selectedEpisode ? (
+          <div>
+            <h2>{selectedEpisode.title}</h2>
+            {selectedEpisode}
+          </div>
+        ) : (
+          <div>Select an episode</div>
+        )}
       </div>
     </>
   );
