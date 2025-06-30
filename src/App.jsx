@@ -4,6 +4,10 @@ import { episodeList } from "./data.js";
 export default function App() {
   const { selectedEpisode, setSelectedEpisode } = useState(null);
 
+  function changeEpisodeSelected(idx) {
+    setSelectedEpisode(episodeList[idx]);
+  }
+
   return (
     <>
       <h1>Dark Echoes</h1>
@@ -11,8 +15,18 @@ export default function App() {
         <section>
           <h2>Episodes</h2>
           <ul>
-            {episodeList.map((episode) => {
-              return <li>{episode.title}</li>;
+            {episodeList.map((episode, idx) => {
+              return (
+                <li
+                  className="episodeItem"
+                  key={idx}
+                  onClick={() => {
+                    changeEpisodeSelected(idx);
+                  }}
+                >
+                  {episode.title}
+                </li>
+              );
             })}
           </ul>
         </section>
