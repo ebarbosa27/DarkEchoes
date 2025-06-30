@@ -1,0 +1,38 @@
+html {
+  background-color: rgb(26, 26, 26);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 20px;
+}
+
+main {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+section {
+  flex: 1;
+}
+
+section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.episodeItem {
+  padding: 1rem 1rem;
+  margin: 0;
+  border-top: 1px dashed rgb(85, 85, 85);
+}
+.episodeItem:first-child {
+  border-top: none;
+}
+
+.episodeItem:hover {
+  background-color: rgb(40, 40, 40);
+  cursor: pointer;
+}
