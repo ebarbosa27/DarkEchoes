@@ -29,7 +29,6 @@ export default function App() {
 
   function EpisodeSelection() {
     if (selectedEpisode) {
-      console.log(selectedEpisode);
       return (
         <section>
           <h2>Episode {selectedEpisode.id}</h2>
