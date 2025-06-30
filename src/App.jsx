@@ -28,12 +28,17 @@ export default function App() {
   }
 
   function EpisodeSelection() {
-    if (selectedEpisode)
+    if (selectedEpisode) {
+      console.log(selectedEpisode);
       return (
         <section>
-          <h2>{selectedEpisode.title}</h2>
+          <h2>Episode {selectedEpisode.id}</h2>
+          <h3>{selectedEpisode.title}</h3>
+          <p>{selectedEpisode.description}</p>
+          <button>Watch now</button>
         </section>
       );
+    }
 
     return (
       <section>
