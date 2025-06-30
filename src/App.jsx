@@ -3,37 +3,51 @@ import { episodeList } from "./data.js";
 
 export default function App() {
   const [selectedEpisode, setSelectedEpisode] = useState(null);
+
+  function EpisodeList() {
+    return (
+      <section>
+        <h2>Episodes</h2>
+        <ul>
+          {episodeList.map((episode, idx) => {
+            return (
+              <li
+                className="episodeItem"
+                key={idx}
+                onClick={() => {
+                  setSelectedEpisode(episode);
+                }}
+              >
+                {episode.title}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    );
+  }
+
+  function EpisodeSelection() {
+    if (selectedEpisode)
+      return (
+        <section>
+          <h2>{selectedEpisode.title}</h2>
+        </section>
+      );
+
+    return (
+      <section>
+        <p>Select an episode</p>
+      </section>
+    );
+  }
+
   return (
     <>
       <h1>Dark Echoes</h1>
       <main>
-        <section>
-          <h2>Episodes</h2>
-          <ul>
-            {episodeList.map((episode, idx) => {
-              return (
-                <li
-                  className="episodeItem"
-                  key={idx}
-                  onClick={() => {
-                    setSelectedEpisode(episode);
-                  }}
-                >
-                  {episode.title}
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-        <section>
-          {selectedEpisode ? (
-            <>
-              <h2>{selectedEpisode.title}</h2>
-            </>
-          ) : (
-            <p>Select an episode</p>
-          )}
-        </section>
+        <EpisodeList />
+        <EpisodeSelection />
       </main>
     </>
   );
