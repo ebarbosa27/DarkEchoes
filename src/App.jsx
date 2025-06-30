@@ -2,12 +2,7 @@ import { useState } from "react";
 import { episodeList } from "./data.js";
 
 export default function App() {
-  const { selectedEpisode, setSelectedEpisode } = useState(null);
-
-  function changeEpisodeSelected(idx) {
-    setSelectedEpisode(episodeList[idx]);
-  }
-
+  const [selectedEpisode, setSelectedEpisode] = useState(null);
   return (
     <>
       <h1>Dark Echoes</h1>
@@ -21,7 +16,7 @@ export default function App() {
                   className="episodeItem"
                   key={idx}
                   onClick={() => {
-                    changeEpisodeSelected(idx);
+                    setSelectedEpisode(episode);
                   }}
                 >
                   {episode.title}
@@ -34,7 +29,6 @@ export default function App() {
           {selectedEpisode ? (
             <>
               <h2>{selectedEpisode.title}</h2>
-              <div>{selectedEpisode}</div>
             </>
           ) : (
             <p>Select an episode</p>
