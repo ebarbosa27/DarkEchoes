@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { episodeList } from "./data.js";
 
 export default function App() {
   const { selectedEpisode, setSelectedEpisode } = useState(null);
@@ -6,20 +7,26 @@ export default function App() {
   return (
     <>
       <h1>Dark Echoes</h1>
-      <div>
-        <div>
+      <main>
+        <section>
           <h2>Episodes</h2>
-          {/* List items here */}
-        </div>
-        {selectedEpisode ? (
-          <div>
-            <h2>{selectedEpisode.title}</h2>
-            {selectedEpisode}
-          </div>
-        ) : (
-          <div>Select an episode</div>
-        )}
-      </div>
+          <ul>
+            {episodeList.map((episode) => {
+              return <li>{episode.title}</li>;
+            })}
+          </ul>
+        </section>
+        <section>
+          {selectedEpisode ? (
+            <>
+              <h2>{selectedEpisode.title}</h2>
+              <div>{selectedEpisode}</div>
+            </>
+          ) : (
+            <p>Select an episode</p>
+          )}
+        </section>
+      </main>
     </>
   );
 }
